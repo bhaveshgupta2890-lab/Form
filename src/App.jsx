@@ -6,13 +6,13 @@ import { useState, useRef } from "react";
    you want enquiries delivered to). Leave it as YOUR_ACCESS_KEY and
    the form runs in PREVIEW mode (fakes the send so you can demo it).
    ──────────────────────────────────────────────────────────────── */
-const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "4a767f2e-cf01-4a81-bfdc-9bda47d1cb65";
 
 /* Your details — change these to your real business info. */
-const BRAND = "Sankalp Admissions";
+const BRAND = "ANIS Admissions";
 const PHONE_DISPLAY = "+91 98765 43210";
 const PHONE_TEL = "+919876543210";
-const EMAIL = "hello@sankalpadmissions.in";
+const EMAIL = "hello@anisadmissions.in";
 const CITY = "Meerut, Uttar Pradesh";
 
 /* Preview mode auto-detects the placeholder — you don't touch this.
@@ -28,9 +28,24 @@ const STATS = [
 ];
 
 const STORIES = [
-  { name: "Aarav S.", course: "MBBS", college: "Private Medical College, UP", year: "2024" },
-  { name: "Priya R.", course: "B.Tech · CSE (AI)", college: "Deemed University, NCR", year: "2024" },
-  { name: "Mohammed F.", course: "BDS", college: "Dental College, Uttarakhand", year: "2023" },
+  {
+    name: "Aarav S.",
+    course: "MBBS",
+    college: "Private Medical College, UP",
+    year: "2024",
+  },
+  {
+    name: "Priya R.",
+    course: "B.Tech · CSE (AI)",
+    college: "Deemed University, NCR",
+    year: "2024",
+  },
+  {
+    name: "Mohammed F.",
+    course: "BDS",
+    college: "Dental College, Uttarakhand",
+    year: "2023",
+  },
 ];
 
 export default function App() {
@@ -52,7 +67,9 @@ export default function App() {
 
 const scrollTo = (id) => (e) => {
   e.preventDefault();
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  document
+    .getElementById(id)
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
 function Nav() {
@@ -63,9 +80,15 @@ function Nav() {
         <span>{BRAND}</span>
       </a>
       <nav className="nav-links">
-        <a href="#services" onClick={scrollTo("services")}>Services</a>
-        <a href="#process" onClick={scrollTo("process")}>How it works</a>
-        <a href="#results" onClick={scrollTo("results")}>Results</a>
+        <a href="#services" onClick={scrollTo("services")}>
+          Services
+        </a>
+        <a href="#process" onClick={scrollTo("process")}>
+          How it works
+        </a>
+        <a href="#results" onClick={scrollTo("results")}>
+          Results
+        </a>
       </nav>
       <a className="nav-cta" href={`tel:${PHONE_TEL}`}>
         <PhoneIcon /> {PHONE_DISPLAY}
@@ -79,14 +102,17 @@ function Hero() {
     <section className="hero" id="top">
       <div className="hero-grain" aria-hidden />
       <div className="hero-inner">
-        <span className="eyebrow gold">MBBS &amp; B.Tech Admissions · {CITY.split(",")[0]}</span>
+        <span className="eyebrow gold">
+          MBBS &amp; B.Tech Admissions · {CITY.split(",")[0]}
+        </span>
         <h1 className="hero-title">
-          The right medical or engineering seat — secured with guidance you can trust.
+          The right medical or engineering seat — secured with guidance you can
+          trust.
         </h1>
         <p className="hero-sub">
-          {BRAND} helps students across Meerut win MBBS and B.Tech seats through management
-          and NRI quota — with transparent fees, recognised colleges, and counselling that
-          puts your future first.
+          {BRAND} helps students across Meerut win MBBS and B.Tech seats through
+          management and NRI quota — with transparent fees, recognised colleges,
+          and counselling that puts your future first.
         </p>
         <div className="hero-cta">
           <a className="btn-gold" href="#contact" onClick={scrollTo("contact")}>
@@ -115,25 +141,37 @@ function Services() {
       <SectionHead eyebrow="What we do" title="Two paths. One honest guide." />
       <div className="svc-grid">
         <article className="svc">
-          <div className="svc-ic"><MedIcon /></div>
+          <div className="svc-ic">
+            <MedIcon />
+          </div>
           <h3>MBBS &amp; Medical Sciences</h3>
           <p>
-            Seats in private and deemed medical colleges through management &amp; NRI quota —
-            MBBS, BDS, BAMS, BHMS and allied health, across UP and neighbouring states.
+            Seats in private and deemed medical colleges through management
+            &amp; NRI quota — MBBS, BDS, BAMS, BHMS and allied health, across UP
+            and neighbouring states.
           </p>
           <div className="tags">
-            <span>MBBS</span><span>BDS</span><span>BAMS</span><span>NRI quota</span>
+            <span>MBBS</span>
+            <span>BDS</span>
+            <span>BAMS</span>
+            <span>NRI quota</span>
           </div>
         </article>
         <article className="svc">
-          <div className="svc-ic"><ChipIcon /></div>
+          <div className="svc-ic">
+            <ChipIcon />
+          </div>
           <h3>Engineering &amp; Technology</h3>
           <p>
-            B.Tech and diploma admissions in Computer Science, AI &amp; Data Science, IT,
-            Electronics and core branches at reputed private universities.
+            B.Tech and diploma admissions in Computer Science, AI &amp; Data
+            Science, IT, Electronics and core branches at reputed private
+            universities.
           </p>
           <div className="tags">
-            <span>CSE</span><span>AI / ML</span><span>IT</span><span>ECE</span>
+            <span>CSE</span>
+            <span>AI / ML</span>
+            <span>IT</span>
+            <span>ECE</span>
           </div>
         </article>
       </div>
@@ -143,14 +181,33 @@ function Services() {
 
 function Trust() {
   const items = [
-    { ic: <ShieldIcon />, t: "Transparent fees", d: "You see the college fee structure and our advisory fee upfront — written down, before you decide. No hidden charges, no surprises." },
-    { ic: <CheckSeal />, t: "Recognised colleges only", d: "We recommend NMC and AICTE-approved, accredited institutions. We will never push an unrecognised seat." },
-    { ic: <HeartIcon />, t: "Counselling, not sales", d: "If a college doesn't fit your marks, budget or goals, we say so. We'd rather lose a deal than mislead a family." },
-    { ic: <RouteIcon />, t: "One counsellor, start to finish", d: "From shortlisting to final document submission, the same person stays with you the whole way." },
+    {
+      ic: <ShieldIcon />,
+      t: "Transparent fees",
+      d: "You see the college fee structure and our advisory fee upfront — written down, before you decide. No hidden charges, no surprises.",
+    },
+    {
+      ic: <CheckSeal />,
+      t: "Recognised colleges only",
+      d: "We recommend NMC and AICTE-approved, accredited institutions. We will never push an unrecognised seat.",
+    },
+    {
+      ic: <HeartIcon />,
+      t: "Counselling, not sales",
+      d: "If a college doesn't fit your marks, budget or goals, we say so. We'd rather lose a deal than mislead a family.",
+    },
+    {
+      ic: <RouteIcon />,
+      t: "One counsellor, start to finish",
+      d: "From shortlisting to final document submission, the same person stays with you the whole way.",
+    },
   ];
   return (
     <section className="section band-soft" id="trust">
-      <SectionHead eyebrow="Why families trust us" title="Built on transparency, not promises." />
+      <SectionHead
+        eyebrow="Why families trust us"
+        title="Built on transparency, not promises."
+      />
       <div className="trust-grid">
         {items.map((i) => (
           <article className="trust" key={i.t}>
@@ -168,15 +225,33 @@ function Trust() {
 
 function Process() {
   const steps = [
-    { t: "Free enquiry & counselling", d: "Share your marks, budget and preferred branch or city. We assess your options honestly." },
-    { t: "College shortlist", d: "A clear list with fees, recognition status and real seat availability — no guesswork." },
-    { t: "Compare & verify", d: "We help you weigh the options and verify each college before you commit a rupee." },
-    { t: "Documentation", d: "Forms, deadlines and paperwork handled with you, so nothing slips." },
-    { t: "Seat confirmed", d: "You join your college with every document in order and full clarity on costs." },
+    {
+      t: "Free enquiry & counselling",
+      d: "Share your marks, budget and preferred branch or city. We assess your options honestly.",
+    },
+    {
+      t: "College shortlist",
+      d: "A clear list with fees, recognition status and real seat availability — no guesswork.",
+    },
+    {
+      t: "Compare & verify",
+      d: "We help you weigh the options and verify each college before you commit a rupee.",
+    },
+    {
+      t: "Documentation",
+      d: "Forms, deadlines and paperwork handled with you, so nothing slips.",
+    },
+    {
+      t: "Seat confirmed",
+      d: "You join your college with every document in order and full clarity on costs.",
+    },
   ];
   return (
     <section className="section" id="process">
-      <SectionHead eyebrow="How it works" title="A clear path, start to seat." />
+      <SectionHead
+        eyebrow="How it works"
+        title="A clear path, start to seat."
+      />
       <ol className="steps">
         {steps.map((s, i) => (
           <li className="step" key={s.t}>
@@ -195,7 +270,10 @@ function Process() {
 function Results() {
   return (
     <section className="section band-soft" id="results">
-      <SectionHead eyebrow="Success stories" title="Families who trusted us, admitted." />
+      <SectionHead
+        eyebrow="Success stories"
+        title="Families who trusted us, admitted."
+      />
       <div className="results-grid">
         {STORIES.map((s) => (
           <article className="result" key={s.name}>
@@ -207,7 +285,10 @@ function Results() {
           </article>
         ))}
       </div>
-      <p className="results-note">Names shortened for privacy. Replace with your own verified testimonials.</p>
+      <p className="results-note">
+        Names shortened for privacy. Replace with your own verified
+        testimonials.
+      </p>
     </section>
   );
 }
@@ -219,7 +300,9 @@ function QuoteBand() {
         “They told us plainly which college fit our budget and which didn't.
         That honesty is why we trusted them with our daughter's MBBS admission.”
       </p>
-      <p className="quote-by">— A parent, Meerut · <em>sample testimonial</em></p>
+      <p className="quote-by">
+        — A parent, Meerut · <em>sample testimonial</em>
+      </p>
     </section>
   );
 }
@@ -240,7 +323,8 @@ function Contact() {
     if (!values.name.trim()) next.name = "Please tell us your name.";
     const digits = values.phone.replace(/\D/g, "");
     if (!values.phone.trim()) next.phone = "We need a number to call you back.";
-    else if (digits.length < 10 || digits.length > 13) next.phone = "Enter a valid phone number.";
+    else if (digits.length < 10 || digits.length > 13)
+      next.phone = "Enter a valid phone number.";
     return next;
   }
 
@@ -256,7 +340,10 @@ function Contact() {
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: `New admission enquiry: ${values.name}`,
@@ -287,13 +374,19 @@ function Contact() {
           <span className="eyebrow gold">Talk to us</span>
           <h2>Request a free callback</h2>
           <p>
-            Leave your name and number. A senior counsellor calls you back — usually within
-            a few hours, never with spam.
+            Leave your name and number. A senior counsellor calls you back —
+            usually within a few hours, never with spam.
           </p>
           <ul className="contact-points">
-            <li><CheckMini /> Free, no-obligation first call</li>
-            <li><CheckMini /> Honest advice on colleges &amp; fees</li>
-            <li><CheckMini /> Your details stay private</li>
+            <li>
+              <CheckMini /> Free, no-obligation first call
+            </li>
+            <li>
+              <CheckMini /> Honest advice on colleges &amp; fees
+            </li>
+            <li>
+              <CheckMini /> Your details stay private
+            </li>
           </ul>
           <a className="contact-phone" href={`tel:${PHONE_TEL}`}>
             <PhoneIcon /> Prefer to talk now? {PHONE_DISPLAY}
@@ -303,19 +396,30 @@ function Contact() {
         <div className="contact-right">
           {status === "sent" ? (
             <div className="ack">
-              <div className="ack-seal"><Seal /></div>
+              <div className="ack-seal">
+                <Seal />
+              </div>
               <h3>We've got your request</h3>
-              <p>Thank you, {values.name || "there"}. A counsellor will call you on your number shortly.</p>
-              <button className="btn-ghost" onClick={reset}>Send another →</button>
+              <p>
+                Thank you, {values.name || "there"}. A counsellor will call you
+                on your number shortly.
+              </p>
+              <button className="btn-ghost" onClick={reset}>
+                Send another →
+              </button>
             </div>
           ) : (
             <>
               {status === "error" && (
                 <div className="banner" role="alert">
-                  That didn't go through. Please check your connection and try again.
+                  That didn't go through. Please check your connection and try
+                  again.
                 </div>
               )}
-              <label className={`field ${errors.name ? "has-error" : ""}`} htmlFor="c-name">
+              <label
+                className={`field ${errors.name ? "has-error" : ""}`}
+                htmlFor="c-name"
+              >
                 <span className="lbl">Full name</span>
                 <input
                   ref={nameRef}
@@ -327,7 +431,10 @@ function Contact() {
                 />
                 {errors.name && <span className="err">{errors.name}</span>}
               </label>
-              <label className={`field ${errors.phone ? "has-error" : ""}`} htmlFor="c-phone">
+              <label
+                className={`field ${errors.phone ? "has-error" : ""}`}
+                htmlFor="c-phone"
+              >
                 <span className="lbl">Phone number</span>
                 <input
                   id="c-phone"
@@ -340,11 +447,23 @@ function Contact() {
                 />
                 {errors.phone && <span className="err">{errors.phone}</span>}
               </label>
-              <button className="btn-gold full" onClick={send} disabled={status === "sending"}>
-                {status === "sending" ? <span className="spinner" aria-hidden /> : <>Request callback <span className="arrow">→</span></>}
+              <button
+                className="btn-gold full"
+                onClick={send}
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? (
+                  <span className="spinner" aria-hidden />
+                ) : (
+                  <>
+                    Request callback <span className="arrow">→</span>
+                  </>
+                )}
               </button>
               <p className="form-foot">
-                {PREVIEW_MODE ? "Preview mode — paste your key to receive real enquiries." : "By submitting, you agree to be contacted about admissions."}
+                {PREVIEW_MODE
+                  ? "Preview mode — paste your key to receive real enquiries."
+                  : "By submitting, you agree to be contacted about admissions."}
               </p>
             </>
           )}
@@ -359,8 +478,14 @@ function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-brand">
-          <div className="brand"><Seal small /><span>{BRAND}</span></div>
-          <p>Honest admissions guidance for MBBS and engineering aspirants in {CITY}.</p>
+          <div className="brand">
+            <Seal small />
+            <span>{BRAND}</span>
+          </div>
+          <p>
+            Honest admissions guidance for MBBS and engineering aspirants in{" "}
+            {CITY}.
+          </p>
         </div>
         <div className="footer-col">
           <h4>Contact</h4>
@@ -371,17 +496,28 @@ function Footer() {
         </div>
         <div className="footer-col">
           <h4>Explore</h4>
-          <a href="#services" onClick={scrollTo("services")}>Services</a>
-          <a href="#process" onClick={scrollTo("process")}>How it works</a>
-          <a href="#results" onClick={scrollTo("results")}>Results</a>
-          <a href="#contact" onClick={scrollTo("contact")}>Request callback</a>
+          <a href="#services" onClick={scrollTo("services")}>
+            Services
+          </a>
+          <a href="#process" onClick={scrollTo("process")}>
+            How it works
+          </a>
+          <a href="#results" onClick={scrollTo("results")}>
+            Results
+          </a>
+          <a href="#contact" onClick={scrollTo("contact")}>
+            Request callback
+          </a>
         </div>
       </div>
       <p className="disclaimer">
-        Admissions are subject to college eligibility, regulatory norms and seat availability.
-        {" "}{BRAND} provides guidance and counselling and does not guarantee admission.
+        Admissions are subject to college eligibility, regulatory norms and seat
+        availability. {BRAND} provides guidance and counselling and does not
+        guarantee admission.
       </p>
-      <p className="copyright">© {new Date().getFullYear()} {BRAND}. All rights reserved.</p>
+      <p className="copyright">
+        © {new Date().getFullYear()} {BRAND}. All rights reserved.
+      </p>
     </footer>
   );
 }
@@ -398,7 +534,11 @@ function SectionHead({ eyebrow, title }) {
 
 function Seal({ small }) {
   return (
-    <svg className={`seal ${small ? "seal-sm" : ""}`} viewBox="0 0 48 48" aria-hidden>
+    <svg
+      className={`seal ${small ? "seal-sm" : ""}`}
+      viewBox="0 0 48 48"
+      aria-hidden
+    >
       <circle cx="24" cy="24" r="22" className="seal-ring" />
       <circle cx="24" cy="24" r="16" className="seal-ring2" />
       <path d="M16 24.5l5.5 5.5L33 18.5" className="seal-check" />
@@ -406,14 +546,51 @@ function Seal({ small }) {
   );
 }
 
-const PhoneIcon = () => (<svg viewBox="0 0 24 24" className="i" aria-hidden><path d="M6.5 3.5h3l1.5 5-2 1.5a12 12 0 005.5 5.5l1.5-2 5 1.5v3a2 2 0 01-2 2A16 16 0 014.5 5.5a2 2 0 012-2z"/></svg>);
-const MedIcon = () => (<svg viewBox="0 0 24 24" className="i" aria-hidden><path d="M9 3v4M15 3v4M7 7h10v5a5 5 0 01-10 0V7zM12 17v2a3 3 0 003 3 3 3 0 003-3v-2"/><circle cx="18" cy="13" r="1.4"/></svg>);
-const ChipIcon = () => (<svg viewBox="0 0 24 24" className="i" aria-hidden><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v3M14 3v3M10 18v3M14 18v3M3 10h3M3 14h3M18 10h3M18 14h3"/></svg>);
-const ShieldIcon = () => (<svg viewBox="0 0 24 24" className="i" aria-hidden><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg>);
-const CheckSeal = () => (<svg viewBox="0 0 24 24" className="i" aria-hidden><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>);
-const HeartIcon = () => (<svg viewBox="0 0 24 24" className="i" aria-hidden><path d="M12 20s-7-4.5-7-9.5A3.5 3.5 0 0112 7a3.5 3.5 0 017 3.5C19 15.5 12 20 12 20z"/></svg>);
-const RouteIcon = () => (<svg viewBox="0 0 24 24" className="i" aria-hidden><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8 6h6a3 3 0 010 6H10a3 3 0 000 6h6"/></svg>);
-const CheckMini = () => (<svg viewBox="0 0 24 24" className="i-mini" aria-hidden><path d="M5 12.5l4 4L19 7"/></svg>);
+const PhoneIcon = () => (
+  <svg viewBox="0 0 24 24" className="i" aria-hidden>
+    <path d="M6.5 3.5h3l1.5 5-2 1.5a12 12 0 005.5 5.5l1.5-2 5 1.5v3a2 2 0 01-2 2A16 16 0 014.5 5.5a2 2 0 012-2z" />
+  </svg>
+);
+const MedIcon = () => (
+  <svg viewBox="0 0 24 24" className="i" aria-hidden>
+    <path d="M9 3v4M15 3v4M7 7h10v5a5 5 0 01-10 0V7zM12 17v2a3 3 0 003 3 3 3 0 003-3v-2" />
+    <circle cx="18" cy="13" r="1.4" />
+  </svg>
+);
+const ChipIcon = () => (
+  <svg viewBox="0 0 24 24" className="i" aria-hidden>
+    <rect x="7" y="7" width="10" height="10" rx="1.5" />
+    <path d="M10 3v3M14 3v3M10 18v3M14 18v3M3 10h3M3 14h3M18 10h3M18 14h3" />
+  </svg>
+);
+const ShieldIcon = () => (
+  <svg viewBox="0 0 24 24" className="i" aria-hidden>
+    <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" />
+  </svg>
+);
+const CheckSeal = () => (
+  <svg viewBox="0 0 24 24" className="i" aria-hidden>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M8 12.5l2.5 2.5L16 9.5" />
+  </svg>
+);
+const HeartIcon = () => (
+  <svg viewBox="0 0 24 24" className="i" aria-hidden>
+    <path d="M12 20s-7-4.5-7-9.5A3.5 3.5 0 0112 7a3.5 3.5 0 017 3.5C19 15.5 12 20 12 20z" />
+  </svg>
+);
+const RouteIcon = () => (
+  <svg viewBox="0 0 24 24" className="i" aria-hidden>
+    <circle cx="6" cy="6" r="2.2" />
+    <circle cx="18" cy="18" r="2.2" />
+    <path d="M8 6h6a3 3 0 010 6H10a3 3 0 000 6h6" />
+  </svg>
+);
+const CheckMini = () => (
+  <svg viewBox="0 0 24 24" className="i-mini" aria-hidden>
+    <path d="M5 12.5l4 4L19 7" />
+  </svg>
+);
 
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
